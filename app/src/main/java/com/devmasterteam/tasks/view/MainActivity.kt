@@ -1,6 +1,8 @@
 package com.devmasterteam.tasks.view
 
+import android.content.Intent
 import android.os.Bundle
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -26,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener {
-            TODO()
+            startActivity(Intent(applicationContext, TaskFormActivity::class.java))
         }
 
         // Navegação
