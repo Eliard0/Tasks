@@ -7,13 +7,13 @@ import retrofit2.http.*
 interface TaskService {
 
     @GET("Task")
-    fun list(): Call<List<TaskService>>
+    fun list(): Call<List<TaskModel>>
 
-    @GET("Next7Days")
-    fun listNext(): Call<List<TaskService>>
+    @GET("Task/Next7Days")
+    fun listNext(): Call<List<TaskModel>>
 
-    @GET("Overdue")
-    fun listOverdue(): Call<List<TaskService>>
+    @GET("Task/Overdue")
+    fun listOverdue(): Call<List<TaskModel>>
 
     @GET("Task/{id}")
     fun load(@Path(value = "id", encoded = false) id: Int): Call<TaskModel>
