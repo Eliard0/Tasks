@@ -24,7 +24,7 @@ interface TaskService {
         @Field("PriorityId") priority: Int,
         @Field("Description") description: String,
         @Field("DueDate") dueDate: String,
-        @Field("Complete") complete: Boolean
+        @Field("Complete") complete: Boolean,
     ): Call<Boolean>
 
     @PUT("Task")
@@ -33,7 +33,7 @@ interface TaskService {
         @Field("Priority") priority: Int,
         @Field("Description") description: String,
         @Field("DueDate") dueDate: String,
-        @Field("Complete") complete: Boolean
+        @Field("Complete") complete: Boolean,
     ): Call<Boolean>
 
     @PUT("Task/Complete")
@@ -44,7 +44,7 @@ interface TaskService {
     @FormUrlEncoded
     fun undo(@Field("Id") id: Int): Call<Boolean>
 
-    @DELETE("Task")
+    @HTTP(method = "DELETE", path = "task", hasBody = true)
     @FormUrlEncoded
     fun delete(@Field("Id") id: Int): Call<Boolean>
 
