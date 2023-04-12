@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.devmasterteam.tasks.R
 import com.devmasterteam.tasks.databinding.ActivityTaskFormBinding
+import com.devmasterteam.tasks.service.constants.TaskConstants
 import com.devmasterteam.tasks.service.model.PriorityModel
 import com.devmasterteam.tasks.service.model.TaskModel
 import com.devmasterteam.tasks.viewmodel.TaskFormViewModel
@@ -37,6 +38,8 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener,
 
         viewModel.loadPriorities()
 
+        loadDataFromActivity()
+
         observe()
 
         // Layout
@@ -57,6 +60,17 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener,
 
         val dueDate = dateFormat.format(calendar.time)
         binding.buttonDate.text = dueDate
+    }
+
+    fun loadDataFromActivity() {
+        val bundle = intent.extras
+
+        if(bundle != null){
+            val taskId = bundle.getInt(TaskConstants.BUNDLE.TASKID)
+        }else{
+
+        }
+
     }
 
     fun observe() {
